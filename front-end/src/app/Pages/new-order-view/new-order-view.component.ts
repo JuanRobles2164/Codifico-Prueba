@@ -103,7 +103,6 @@ export class NewOrderViewComponent implements OnInit {
   }
 
   save() {
-    console.log(this.orderForm.value);
     if (this.orderForm.valid) {
       var newOrder : Order = {
         orderId: 0,
@@ -127,6 +126,8 @@ export class NewOrderViewComponent implements OnInit {
       this.orderService.addOrder(formulario)
       alert('Orden creada con éxito');
       this.close();
+    }else{
+      alert("Verifica de nuevo el formulario");
     }
   }
 

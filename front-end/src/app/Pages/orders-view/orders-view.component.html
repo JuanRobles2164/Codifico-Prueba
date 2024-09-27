@@ -39,5 +39,10 @@
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
         <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        <mat-card-actions align="end">
+            <button mat-button (click)="close()" style="color: #b52c2d;">
+                CLOSE
+            </button>
+        </mat-card-actions>
     </mat-card-content>
 </mat-card>

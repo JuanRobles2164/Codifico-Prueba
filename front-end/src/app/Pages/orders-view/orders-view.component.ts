@@ -1,5 +1,5 @@
 import { Component, Inject, inject, OnInit, ViewChild } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { OrderService } from '../../Services/order.service';
 import { Order } from '../../Models/Order';
 import { Router } from '@angular/router';
@@ -44,6 +44,7 @@ export class OrdersViewComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(
+    private readonly _dialogRef: MatDialogRef<OrdersViewComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.dataSource = new MatTableDataSource<Order>();
@@ -64,5 +65,9 @@ export class OrdersViewComponent implements OnInit {
         },
       });
     }
+  }
+
+  close(){
+    this._dialogRef.close();
   }
 }
