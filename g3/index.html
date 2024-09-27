@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico con D3.js</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        .value-label {
+            font-size: 12px;
+            fill: black;
+            text-anchor: end;
+        }
+    </style>
+</head>
+
+<body>
+    <span>
+        <label for="dataInput">Source Data:</label>
+        <input type="text" id="dataInput" placeholder="">
+        <button id="drawChart">Update Date</button>
+    </span>
+    <br>
+    <svg id="barChart" width="600" height="400"></svg>
+
+    <script>
+
+        document.getElementById("drawChart").onclick = function () {
+
+            const inputData = document.getElementById("dataInput").value;
+            const data = inputData.split(',').map(Number);
+
+            const svg = d3.select("#barChart");
+            svg.selectAll("*").remove();
+
+            const width = +svg.attr("width");
+            const height = +svg.attr("height");
+            const margin = { top: 20, right: 30, bottom: 20, left: 120 };
+
+            const x = d3.scaleLinear()
+                .domain([0, d3.max(data)]) // Maximo de los datos para el eje X
+                .range([margin.left, width - margin.right]);
+
+            const colors = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd"]; // 5 colores diferentes
+
+            svg.selectAll(".bar")
+                .data(data)
+                .enter().append("rect")
+                .attr("class", "bar")
+                .attr("x", margin.left)
+                .attr("y", (d, i) => i * 30 + margin.top)
+                .attr("height", 25)
+                .attr("width", d => x(d) - margin.left)
+                .attr("fill", (d, i) => colors[i % colors.length]); //Alternado de colores
+
+            svg.selectAll(".value-label")
+                .data(data)
+                .enter().append("text")
+                .attr("class", "value-label")
+                .attr("x", d => x(d) - 5)
+                .attr("y", (d, i) => i * 30 + margin.top + 15)
+                .text(d => d);
+        };
+    </script>
+</body>
+
+</html>

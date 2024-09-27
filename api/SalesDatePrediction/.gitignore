@@ -1,0 +1,60 @@
+# Ignore the build output directories
+/bin
+/obj
+
+# User-specific files
+*.rsuser
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Auto-generated files by Visual Studio
+.vs/
+.idea/
+.vscode/
+
+# Ignore NuGet packages
+*.nupkg
+# Ensure that NuGet package folders are not added to source control
+**/packages/*
+!**/packages/build/
+!**/packages/repositories.config
+
+# Ignore build directories
+**/bin/
+**/obj/
+
+# Ignore user-specific settings
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.vspscc
+*.vssscc
+.vscode/
+
+# Rider IDE files
+.idea/
+
+# Ignore the application and test outputs (if built)
+aplicacion/bin/
+aplicacion/obj/
+aplicacion-tests/bin/
+aplicacion-tests/obj/
+
+# Ignore the .NET user secrets and local settings
+appsettings.*.json
+secrets.json
+
+# Ignore publish output
+publish/
+
+# Ignore dependencies and compiled output
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Ignore JetBrains Rider project files
+.idea/
+.idea_modules/
