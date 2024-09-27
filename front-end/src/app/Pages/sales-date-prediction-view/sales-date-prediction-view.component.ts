@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { OrdersModal } from '../orders-view/orders-modal.service';
 import { OrdersViewComponent } from '../orders-view/orders-view.component';
+import { NewOrderViewComponent } from '../new-order-view/new-order-view.component';
 
 @Component({
   selector: 'app-sales-date-prediction-view',
@@ -32,13 +33,6 @@ export class SalesDatePredictionViewComponent {
     this.customerService.getSalesPredictions().subscribe({
       next: (data) => {
         if(data.results.length > 0){
-          /*this.salesPredictions = data.results.map(x => {
-            return {
-              companyName: x.companyName,
-              lastOrderDate: this.datePipe.transform(x.lastOrderDate, 'dd/MM/yyyy'),
-              nextPredictedOrder: this.datePipe.transform(x.nextPredictedOrder, 'dd/MM/yyyy'),
-            }
-          });*/
           this.salesPredictions = data.results;
         }
       },
@@ -53,11 +47,10 @@ export class SalesDatePredictionViewComponent {
   }
 
   viewOrders(saleData: SalesDatePrediction){
-    //this.router.navigate(['/order/', saleData.customerId, saleData.companyName]);
     this._modalSvc.openModal(OrdersViewComponent, {client_id: saleData.customerId, client_name: saleData.companyName})
   }
 
   newOrder(saleData: SalesDatePrediction){
-    console.log(saleData);
+    this._modalSvc.openModal(NewOrderViewComponent, {saleData});
   }
 }

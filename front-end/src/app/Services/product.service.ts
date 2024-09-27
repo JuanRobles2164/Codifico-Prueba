@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { appsettings } from '../Settings/appsettings';
-import { ResponseApi } from '../Models/Api/ResponseApi';
+import { ProductResponseApi } from '../Models/Api/ProductResponseApi';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,6 @@ export class ProductService {
   constructor() { }
 
   getAll(){
-    return this.http.get<ResponseApi>(this.api_url + "/products");
+    return this.http.get<ProductResponseApi>(this.api_url + "/products");
   }
 }

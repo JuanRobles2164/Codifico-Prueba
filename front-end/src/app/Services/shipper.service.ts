@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { appsettings } from '../Settings/appsettings';
-import { ResponseApi } from '../Models/Api/ResponseApi';
+import { ShippersResponseApi } from '../Models/Api/ShippersResponseApi';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,6 @@ export class ShipperService {
   constructor() { }
 
   getAll(){
-    return this.http.get<ResponseApi>(this.api_url + "/shippers");
+    return this.http.get<ShippersResponseApi>(this.api_url + "/shippers");
   }
 }

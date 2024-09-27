@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { appsettings } from '../Settings/appsettings';
-import { ResponseApi } from '../Models/Api/ResponseApi';
+import { EmployeesResponseApi } from '../Models/Api/EmployeesResponseApi';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,6 @@ export class EmployeeService {
   constructor() { }
 
   getAll(){
-    return this.http.get<ResponseApi>(this.api_url + "/employees");
+    return this.http.get<EmployeesResponseApi>(this.api_url + "/employees");
   }
 }

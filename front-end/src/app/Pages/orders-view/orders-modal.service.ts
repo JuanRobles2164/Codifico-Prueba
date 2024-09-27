@@ -7,6 +7,7 @@ export class OrdersModal{
     private readonly _dialog = inject(MatDialog);
 
     openModal<CT, T>(componentRef: ComponentType<CT>, data?: T): any {
+        console.log(data);
         this._dialog.open(componentRef, {
           data,
           width: '800px',

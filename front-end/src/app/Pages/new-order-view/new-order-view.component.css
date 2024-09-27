@@ -1,0 +1,10 @@
+.row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+mat-form-field {
+    flex: 1;
+    min-width: 200px;
+}
