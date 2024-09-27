@@ -1,0 +1,41 @@
+<mat-card appearance="outlined" style="width: 70%; margin: 50px auto;">
+    <mat-card-header>
+        <mat-card-title>
+            Sales Date Prediction App
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <table mat-table [dataSource]="salesPredictions" class="mat-elevation-z2" style="margin-top: 20px;">
+
+            <ng-container matColumnDef="companyName">
+                <th mat-header-cell *matHeaderCellDef> Company Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.companyName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="lastOrderDate">
+                <th mat-header-cell *matHeaderCellDef> Last Order Date </th>
+                <td mat-cell *matCellDef="let element"> {{element.lastOrderDate}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="nextPredictedOrder">
+                <th mat-header-cell *matHeaderCellDef> Next Predicted Order </th>
+                <td mat-cell *matCellDef="let element"> {{element.nextPredictedOrder}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="accion">
+                <th mat-header-cell *matHeaderCellDef> </th>
+                <td mat-cell *matCellDef="let element">
+                    <button mat-button style="color: red;" (click)="viewOrders(element)">
+                        VIEW ORDERS
+                    </button>
+                    <button mat-button style="color: green;" (click)="newOrder(element)">
+                        NEW ORDER
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </mat-card-content>
+</mat-card>
