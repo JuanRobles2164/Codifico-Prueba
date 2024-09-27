@@ -47,7 +47,7 @@ dotnet test
 Navega a la carpeta del frontend y ejecuta el siguiente comando para instalar las dependencias de Node.js y Angular:
 
 ```bash
-cd /front-end/front
+cd /front-end
 npm install
 ```
 
