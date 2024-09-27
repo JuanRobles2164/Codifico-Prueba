@@ -3,7 +3,7 @@
         <mat-card-title>{{ client_name }} - Orders</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <table mat-table [dataSource]="orders" class="mat-elevation-z2" style="margin-top: 20px;">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z2" style="margin-top: 20px;" matSort>
 
             <ng-container matColumnDef="orderId">
                 <th mat-header-cell *matHeaderCellDef> Order Id </th>
@@ -38,5 +38,6 @@
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
+        <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
     </mat-card-content>
 </mat-card>

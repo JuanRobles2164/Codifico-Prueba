@@ -3,10 +3,19 @@
         <mat-card-title>
             Sales Date Prediction App
         </mat-card-title>
+
     </mat-card-header>
     <mat-card-content>
-        <table mat-table [dataSource]="salesPredictions" class="mat-elevation-z2" style="margin-top: 20px;">
-
+        <form appearance="outline" class="example-full-width" style="width: 100%;">
+            <mat-label>Customers </mat-label>
+            <span style="float: right;">
+                <input matInput (keyup)="applyFilter($event)" placeholder="Customer Name" class="mat-mdc-input-element mat-mdc-form-field-input-control">
+                <button mat-icon-button matSuffix>
+                    <mat-icon>search</mat-icon>
+                </button>
+            </span>
+        </form>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z2" style="margin-top: 20px;">
             <ng-container matColumnDef="companyName">
                 <th mat-header-cell *matHeaderCellDef> Company Name </th>
                 <td mat-cell *matCellDef="let element"> {{element.companyName}} </td>
@@ -37,5 +46,8 @@
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
+
+        <!-- Paginador -->
+        <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
     </mat-card-content>
 </mat-card>

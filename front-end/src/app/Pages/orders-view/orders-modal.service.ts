@@ -10,8 +10,6 @@ export class OrdersModal{
         console.log(data);
         this._dialog.open(componentRef, {
           data,
-          width: '800px',
-          height: '70%',
         });
     }
 

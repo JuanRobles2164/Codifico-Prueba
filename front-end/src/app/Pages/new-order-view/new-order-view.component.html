@@ -14,9 +14,9 @@
                         <mat-select formControlName="employee">
                             @for(employee of employees; track employee)
                             {
-                                <mat-option [value]="employee.empID">
-                                    {{ employee.fullName }}
-                                </mat-option>
+                            <mat-option [value]="employee.empID">
+                                {{ employee.fullName }}
+                            </mat-option>
                             }
                         </mat-select>
                     </mat-form-field>
@@ -26,9 +26,9 @@
                         <mat-select formControlName="shipper">
                             @for(shipper of shippers; track shipper)
                             {
-                                <mat-option [value]="shipper.shipperId">
-                                    {{ shipper.companyName }}
-                                </mat-option>
+                            <mat-option [value]="shipper.shipperId">
+                                {{ shipper.companyName }}
+                            </mat-option>
                             }
                         </mat-select>
                     </mat-form-field>
@@ -59,18 +59,19 @@
                 <div class="row">
                     <mat-form-field appearance="fill">
                         <mat-label>Order Date</mat-label>
-                        <input matInput formControlName="orderDate">
+                        <input type="date" matInput formControlName="orderDate">
                     </mat-form-field>
 
                     <mat-form-field appearance="fill">
                         <mat-label>Required Date</mat-label>
-                        <input matInput formControlName="requiredDate">
+                        <input type="date" matInput formControlName="requiredDate">
                     </mat-form-field>
 
                     <mat-form-field appearance="fill">
                         <mat-label>Shipped Date</mat-label>
-                        <input matInput formControlName="shippedDate">
+                        <input type="date" matInput formControlName="shippedDate">
                     </mat-form-field>
+
                 </div>
 
                 <mat-form-field appearance="fill">
@@ -88,9 +89,9 @@
                         <mat-select formControlName="product">
                             @for(product of products; track product)
                             {
-                                <mat-option [value]="product.productId">
-                                    {{ product.productName }}
-                                </mat-option>
+                            <mat-option [value]="product.productId">
+                                {{ product.productName }}
+                            </mat-option>
                             }
                         </mat-select>
                     </mat-form-field>

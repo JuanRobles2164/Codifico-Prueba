@@ -17,6 +17,7 @@ import { Product } from '../../Models/Product';
 import { OrderService } from '../../Services/order.service';
 import { Order } from '../../Models/Order';
 import { OrderDetails } from '../../Models/OrderDetails';
+import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
 
 @Component({
   selector: 'app-new-order-view',
@@ -28,7 +29,12 @@ import { OrderDetails } from '../../Models/OrderDetails';
     MatInputModule,
     MatSelectModule,
     MatDatepickerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatNativeDateModule
+  ],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'es-ES' },
+    MatNativeDateModule
   ],
   templateUrl: './new-order-view.component.html',
   styleUrls: ['./new-order-view.component.css']
